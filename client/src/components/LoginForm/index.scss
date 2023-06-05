@@ -1,0 +1,218 @@
+.login-modal{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 200vh;
+    @media screen and (min-width:480px) {
+        align-items: center;
+        height: 100vh;
+
+    }
+}
+
+.login-form-container{
+        margin-top: 3rem;
+        width: 100%;
+        align-items: flex-start;
+        height:80%;
+        background-color: #ffffff92;
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        position: relative;    
+    @media screen and (min-width:480px) {
+        align-items: center;
+        width: 90%;
+        margin-top: 0;
+    }
+
+}
+
+.login-form{
+        margin-top: 3rem;
+        flex-direction: column;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    @media screen and (min-width: 480px){
+        flex-direction: row;
+        margin-top: 5rem;
+    }
+    @media screen and (min-width:1200px){
+        width:80%;
+        gap: 0;
+    }
+}
+
+.login-form-right-side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    @media screen and (min-width:1200px){
+        width: 90%;
+    }
+}
+
+.welcome-back{
+    font-weight: 500;
+    font-family: Josephine Sans;
+    @media screen and (min-width: 1200px){
+        font-size: 3rem;
+    }
+    @media screen and (min-width: 2000px){
+        font-size: 6rem;
+    }
+}
+
+.textfield{
+    @media screen and (min-width:1200px){
+        width:60%
+    }
+    @media screen and (min-width:2000px){
+    }
+    
+}
+
+.couple-img{
+        width: 50%;
+        margin-left: 1rem;
+    @media screen and (min-width: 480px){
+        width: 40%;
+        margin: 0;
+    }
+    @media screen and (min-width: 1024px){
+        width: 50%;
+    }
+    @media screen and (min-width: 1200px){
+        width: 60%;
+    }
+    
+}
+
+.flowers-arch{
+    max-width: 90%;
+    position: absolute;
+    top: 4rem;
+    @media screen and (min-width: 480px){
+        top: 0;
+    }
+    @media screen and (min-width: 2000px){
+        width: 80%;
+    }
+}
+
+.login-modal-btn{
+    padding: 0.5rem 0.6rem;
+    height: fit-content;
+    border-radius: 37px;
+    border: 0px solid #000;
+    background-color: #EA2b48;
+    transition: 0.2s;
+    color: white;
+    font-family: Josephine Sans;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    @media screen and (min-width:1200px){
+        padding: 1rem;
+        font-size: 2rem;
+    }
+    @media screen and (min-width: 2000px){
+        padding: 1.5rem;
+        font-size: 3.5rem;    }
+}
+
+.login-modal-btn:hover{
+    background-color: #ffeaea;
+    color: #000;
+
+}
+
+.josephine-sans{
+    font-family: Josephine Sans;
+}
+
+.register-anchor{
+    cursor: pointer;
+    position: relative;
+    color: #EA2b48
+}
+
+.register-anchor:hover::after{
+    content: '';
+    border: 1px solid #EA2b48;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    animation: snakeUnderline 1s ;
+}
+
+.forgot-password{
+    text-decoration: none;
+    color: #63393F;
+    transition: 1s;
+    position: relative;
+    @media screen and (min-width:1200px){
+        font-size: 1.3rem;
+    }
+    @media screen and (min-width:2000px){
+        font-size: 2rem;
+    }
+    
+}
+
+.login-with{
+    @media screen and (min-width:1200px){
+        font-size: 1.3rem;
+    }
+    @media screen and (min-width:2000px){
+        font-size: 2rem;
+    }
+}
+
+.google-icon{
+    width:30px; 
+    height: 30px;
+    @media screen and (min-width:1200px){
+        width:60px; 
+        height: 60px;
+     }
+    @media screen and (min-width:2000px){
+        width:80px; 
+        height: 80px;
+    }
+}
+
+.forgot-password:hover{
+    color: #000;
+}
+
+.forgot-password:hover::after{
+    content: '';
+    border: 1px solid black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    animation: snakeUnderline 1s ;
+}
+
+@keyframes snakeUnderline{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 100%
+    }
+}
