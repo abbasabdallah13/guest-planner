@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face{
     font-family: Josephine Sans;
     src: url("./fonts/JosefinSans-VariableFont_wght.ttf") format('truetype');
@@ -7,6 +11,12 @@
     font-family: Irish Grover;
     src: url("./fonts/IrishGrover-Regular.ttf") format('truetype');
 }
+
+@layer base {
+    html {
+      font-family: Josephine Sans, system-ui, sans-serif;
+    }
+  }
 
 *{
     margin: 0;

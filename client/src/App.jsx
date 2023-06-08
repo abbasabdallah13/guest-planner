@@ -1,23 +1,27 @@
 import React, { useState } from "react";
-import Navbar from "./components/navbar/Navbar";
-import RegisterForm from "./components/RegisterForm/RegisterForm"
-import LoginForm from "./components/LoginForm/LoginForm";
+
+import { BrowserRouter, Routes, Route, Router } from 'react-router-dom'
+
+import Home from "./containers/Home";
+import PasswordReset from "./components/PasswordReset/PasswordReset";
+import ChangePasswordForm from "./components/PasswordReset/ChangePasswordForm";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+
 
 const App = () => {
-    const [loginForm, setLoginForm] = useState(false);
-    const [registerForm, setRegisterForm] = useState(false);
-    
+  const [loginForm, setLoginForm] = useState(false);
+  const [registerForm, setRegisterForm] = useState(false);
 
   return (
-    <div style={{overflowY: (loginForm || registerForm) ? 'hidden' : '' }}>
-        {
-            loginForm && <LoginForm setLoginForm={setLoginForm} setRegisterForm={setRegisterForm}  />
-        }
-        {
-            registerForm && <RegisterForm setLoginForm={setLoginForm} setRegisterForm={setRegisterForm} />
-        }
-        <Navbar setLoginForm={setLoginForm} />
-    </div>
+    <BrowserRouter>
+      <GoogleOAuthProvider clientId="488880517746-iv72h8ctd7krc7cr76k596t048e5fhff.apps.googleusercontent.com">
+        <Routes>
+          <Route path='/' exact element={<Home setLoginForm={setLoginForm} loginForm={loginForm} setRegisterForm={setRegisterForm} registerForm={registerForm}/>} />
+          <Route path="/passwordReset" exact element={<PasswordReset setLoginForm={setLoginForm} loginForm={loginForm} setRegisterForm={setRegisterForm} registerForm={registerForm} />} />
+          <Route path="/updatePassword" exact element={ <ChangePasswordForm setLoginForm={setLoginForm} loginForm={loginForm} setRegisterForm={setRegisterForm} registerForm={registerForm}  /> } />
+        </Routes>
+      </GoogleOAuthProvider>
+    </BrowserRouter>
   )
 };
 

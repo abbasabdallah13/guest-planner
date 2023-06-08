@@ -8,8 +8,11 @@ import burgerMenu from '../../assets/burgerMenu.png';
 import close from '../../assets/close.png'
 
 import './index.scss'
+import { useNavigate } from "react-router-dom";
 
-const Navbar = ({ setLoginForm }) => {
+const Navbar = ({ setLoginForm, component }) => {
+    const navigate = useNavigate();
+
     const [sidebar, setSidebar] = useState(false);
     
     
@@ -21,17 +24,27 @@ const Navbar = ({ setLoginForm }) => {
       let sidebarBtn = document.getElementById('sidebarBtn')
       document.addEventListener('scroll', () => {
         if (window.scrollY === 0){
-            navLogo.classList.remove('logo-scrolled');
-            navLogo.src = logo;
-            navbar.classList.remove('navbar-scrolled');
-            burgerMenu.classList.remove('burger-menu-scrolled');
-        }else if(window.scrollY > 0){
+            if(component !== 'passwordReset' && component !== 'updatePassword'){
+                navLogo.classList.remove('logo-scrolled');
+                navLogo.src = logo;
+                navbar.classList.remove('navbar-scrolled');
+                burgerMenu.classList.remove('burger-menu-scrolled');
+            }
+        }else if(window.scrollY > 0 ){
             navLogo.classList.add('logo-scrolled');
             navLogo.src = whiteLogo;
             navbar.classList.add('navbar-scrolled');
             burgerMenu.classList.add('burger-menu-scrolled');
         }        
       })
+
+      if(component === 'passwordReset' || component === 'updatePassword'){
+        navLogo.classList.add('logo-scrolled');
+        navLogo.src = whiteLogo;
+        navbar.classList.add('navbar-scrolled');
+        burgerMenu.classList.add('burger-menu-scrolled');
+      }
+
       sidebarBtn.addEventListener('mouseenter', () => {
         userIcon.src = whiteUserIcon;
     })
@@ -44,13 +57,13 @@ const Navbar = ({ setLoginForm }) => {
 
   return (
     <div className="navbar" id="navbar">
-                <img className="nav-logo" id='logo' src={logo} alt='logo' />
+                <img onClick={()=>navigate('/')}  className="nav-logo cursor-pointer" id='logo' src={logo} alt='logo' />
                 <div style={{display:'flex', alignItems:'center'}}>
                     <ul className='ul'>
-                            <a href="#about" className="navlink"><li>About</li></a>
-                            <a href="#procedure" className="navlink"><li>Procedure</li></a>
-                            <a href="#example" className="navlink"><li>Example</li></a>
-                            <a href="#contact" className="navlink"><li>Contact</li></a>
+                            <a href="/#about" className="navlink"><li>About</li></a>
+                            <a href="/#procedure" className="navlink"><li>Procedure</li></a>
+                            <a href="/#example" className="navlink"><li>Example</li></a>
+                            <a href="/#contact" className="navlink"><li>Contact</li></a>
                     </ul>
                     <button className="nav-button" id="sidebarBtn" onClick={()=>setLoginForm(true)}>
                         <img src={loginIcon} id="loginBtnIcon" alt="login icon" />
@@ -63,10 +76,10 @@ const Navbar = ({ setLoginForm }) => {
                         sidebar && (
                             <div className="sidebar">
                                 <ul className="sidebar-ul">
-                                    <a href="#about" className="sidebar-link"><li>About</li></a>
-                                    <a href="#procedure" className="sidebar-link"><li>Procedure</li></a>
-                                    <a href="#example" className="sidebar-link"><li>Example</li></a>
-                                    <a href="#contact" className="sidebar-link"><li>Contact</li></a>
+                                    <a href="/#about" className="sidebar-link"><li>About</li></a>
+                                    <a href="/#procedure" className="sidebar-link"><li>Procedure</li></a>
+                                    <a href="/#example" className="sidebar-link"><li>Example</li></a>
+                                    <a href="/#contact" className="sidebar-link"><li>Contact</li></a>
                                 </ul>  
                                 <button className="sidebar-btn" onClick={()=>setLoginForm(true)}>
                                     <img style={{width:'25px', height:'25px'}} src={loginIcon} alt="login icon" />
