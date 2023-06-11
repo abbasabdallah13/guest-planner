@@ -29,12 +29,14 @@ const Navbar = ({ setLoginForm, component }) => {
                 navLogo.src = logo;
                 navbar.classList.remove('navbar-scrolled');
                 burgerMenu.classList.remove('burger-menu-scrolled');
+                navbar.style.zIndex = '0'
             }
         }else if(window.scrollY > 0 ){
             navLogo.classList.add('logo-scrolled');
             navLogo.src = whiteLogo;
             navbar.classList.add('navbar-scrolled');
             burgerMenu.classList.add('burger-menu-scrolled');
+            navbar.style.zIndex = '99'
         }        
       })
 

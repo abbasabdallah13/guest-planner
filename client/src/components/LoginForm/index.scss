@@ -8,11 +8,11 @@
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        height: 200vh;
+        height: fit-content;
+        overflow-y: hidden;
     @media screen and (min-width:480px) {
-        align-items: center;
         height: 100vh;
-
+        align-items: center;
     }
 }
 
@@ -99,14 +99,23 @@
 }
 
 .flowers-arch{
-    max-width: 90%;
+    max-width: 98%;
     position: absolute;
     top: 4rem;
     @media screen and (min-width: 480px){
+        max-width: 90%;
+    }
+    @media screen and (min-width: 600px){
         top: 0;
     }
+    @media screen and (min-width: 768px){
+        max-width: 75%;
+    }
+    @media screen and (min-width: 1024px){
+        max-width: 75%;
+    }
     @media screen and (min-width: 2000px){
-        width: 80%;
+        width: 90%;
     }
 }
 
